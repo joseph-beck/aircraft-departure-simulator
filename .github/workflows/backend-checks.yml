@@ -1,0 +1,66 @@
+name: Backend Checks
+
+on:
+  push:
+    branches:
+      - main
+      - "release/*"
+  pull_request:
+
+env:
+  GO_VERSION: "1.25"
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Go Setup
+        uses: actions/setup-go@v4
+        with:
+          go-version: ${{ env.GO_VERSION }}
+
+      - name: Build
+        run: |
+          cd ads-backend
+          make build
+
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Go Setup
+        uses: actions/setup-go@v4
+        with:
+          go-version: ${{ env.GO_VERSION }}
+
+      - name: Test
+        run: |
+          cd ads-backend
+          make test
+
+  format:
+    name: Format
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Go Setup
+        uses: actions/setup-go@v4
+        with:
+          go-version: ${{ env.GO_VERSION }}
+
+      - name: Format
+        run: |
+          cd ads-backend
+          make fmt
