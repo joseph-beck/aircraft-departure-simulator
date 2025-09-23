@@ -2,6 +2,7 @@
   "cSpell.words": [
     "aircraftconstants",
     "aircraftweight",
+    "Analyse",
     "baygroup",
     "baylocation",
     "baylocations",
@@ -13,8 +14,10 @@
     "interiorlocation",
     "loadlimits",
     "maxweight",
+    "pnpx",
     "seatrow",
     "stabtrim",
-    "testcache"
+    "testcache",
+    "Vitest"
   ]
 }
