@@ -18,26 +18,31 @@ help:
 
 ## gateway: runs the api gateway app
 .phony: gateway
-gateway:
+gateway: generate
 	@go run ${GATEWAY_PATH}
 
 ## flight: runs the flight service app
 .phony: flight
-flight:
+flight: generate
 	@go run ${FLIGHT_PATH}
 
 ## manage: runs the manage service app
 .phony: manage
-manage:
+manage: generate
 	@go run ${MANAGE_PATH}
 
 ## build: build the application
 .phony: build
-build:
+build: generate
 	@mkdir -p ${BUILD_DIR}
 	GOARCH=amd64 GOOS=darwin go build -o ${BUILD_DIR}/${BINARY_NAME}-darwin ${GATEWAY_PATH}
 	GOARCH=amd64 GOOS=linux go build -o ${BUILD_DIR}/${BINARY_NAME}-linux ${GATEWAY_PATH}
 	GOARCH=amd64 GOOS=windows go build -o ${BUILD_DIR}/${BINARY_NAME}-windows.exe ${GATEWAY_PATH}
+
+## generate: this application uses sqlc, so this target will generate the code using config from sqlc.yaml
+.phony: generate
+generate:
+	@sqlc generate
 
 .phony: confirm
 confirm:
