@@ -1,6 +1,8 @@
 BUILD_DIR = ./bin
 BINARY_NAME = aircraft-departure-simulator
-PKG_PATH = ./cmd/ads-gateway/main.go
+GATEWAY_PATH = ./cmd/ads-gateway/main.go
+FLIGHT_PATH = ./cmd/ads-flight/main.go
+MANAGE_PATH = ./cmd/ads-manage/main.go
 
 ## help: get info about the targets within this makefile
 .phony: help
@@ -10,20 +12,32 @@ help:
 	@echo "ads-backend variables:"
 	@echo "  BUILD_DIR: ${BUILD_DIR}"
 	@echo "  BINARY_NAME: ${BINARY_NAME}"
-	@echo "  PKG_PATH: ${PKG_PATH}"
+	@echo "  GATEWAY_PATH: ${GATEWAY_PATH}"
+	@echo "  FLIGHT_PATH: ${FLIGHT_PATH}"
+	@echo "  MANAGE_PATH: ${MANAGE_PATH}"
 
-## cli: runs the cli app in the package path
-.phony: api
-api:
-	@go run ${PKG_PATH}
+## gateway: runs the api gateway app
+.phony: gateway
+gateway:
+	@go run ${GATEWAY_PATH}
+
+## flight: runs the flight service app
+.phony: flight
+flight:
+	@go run ${FLIGHT_PATH}
+
+## manage: runs the manage service app
+.phony: manage
+manage:
+	@go run ${MANAGE_PATH}
 
 ## build: build the application
 .phony: build
 build:
 	@mkdir -p ${BUILD_DIR}
-	GOARCH=amd64 GOOS=darwin go build -o ${BUILD_DIR}/${BINARY_NAME}-darwin ${PKG_PATH}
-	GOARCH=amd64 GOOS=linux go build -o ${BUILD_DIR}/${BINARY_NAME}-linux ${PKG_PATH}
-	GOARCH=amd64 GOOS=windows go build -o ${BUILD_DIR}/${BINARY_NAME}-windows.exe ${PKG_PATH}
+	GOARCH=amd64 GOOS=darwin go build -o ${BUILD_DIR}/${BINARY_NAME}-darwin ${GATEWAY_PATH}
+	GOARCH=amd64 GOOS=linux go build -o ${BUILD_DIR}/${BINARY_NAME}-linux ${GATEWAY_PATH}
+	GOARCH=amd64 GOOS=windows go build -o ${BUILD_DIR}/${BINARY_NAME}-windows.exe ${GATEWAY_PATH}
 
 .phony: confirm
 confirm:

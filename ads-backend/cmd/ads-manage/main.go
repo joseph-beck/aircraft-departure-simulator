@@ -3,5 +3,5 @@ package main
 import "fmt"
 
 func main() {
-	fmt.Println("ads-admin service")
+	fmt.Println("ads-manage service")
 }
