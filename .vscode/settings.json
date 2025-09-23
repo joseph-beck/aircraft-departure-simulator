@@ -7,11 +7,14 @@
     "baylocations",
     "cabinsections",
     "cargohold",
+    "GOARCH",
+    "gofmt",
     "groundstability",
     "interiorlocation",
     "loadlimits",
     "maxweight",
     "seatrow",
-    "stabtrim"
+    "stabtrim",
+    "testcache"
   ]
 }

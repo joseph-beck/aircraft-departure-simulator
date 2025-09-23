@@ -1,13 +1,13 @@
 BUILD_DIR = ./bin
 BINARY_NAME = aircraft-departure-simulator
-PKG_PATH = ./cmd/ads-api/main.go
+PKG_PATH = ./cmd/ads-gateway/main.go
 
 ## help: get info about the targets within this makefile
 .phony: help
 help:
-	@echo "gear usage:"
+	@echo "ads-backend usage:"
 	@sed -n 's/^##//p' ${MAKEFILE_LIST} | column -t -s ':' | sed -e 's/^/ /'
-	@echo "gear variables:"
+	@echo "ads-backend variables:"
 	@echo "  BUILD_DIR: ${BUILD_DIR}"
 	@echo "  BINARY_NAME: ${BINARY_NAME}"
 	@echo "  PKG_PATH: ${PKG_PATH}"
