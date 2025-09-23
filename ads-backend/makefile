@@ -70,6 +70,11 @@ update: tidy
 test: tidy
 	@go test -cover ./...
 
+## test: generates a coverage report for the entire module
+.phony: coverage
+coverage: tidy
+	@go test -coverprofile=coverage.out ./...
+
 ## fmt: format the code
 .phony: fmt
 fmt:

@@ -22,6 +22,7 @@
     "e2e": "playwright test",
     "test": "vitest run",
     "test:coverage": "vitest run --coverage",
+    "test:report": "vitest run --report",
     "test:watch": "vitest watch",
     "bundle:analyse": "vite-bundle-visualizer --output dist/stats.html"
   },

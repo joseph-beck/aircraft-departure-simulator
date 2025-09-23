@@ -15,8 +15,11 @@
     "loadlimits",
     "maxweight",
     "pnpx",
+    "Qube",
     "seatrow",
+    "sonarqube",
     "stabtrim",
+    "stretchr",
     "testcache",
     "Vitest"
   ]
