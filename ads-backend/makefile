@@ -79,12 +79,12 @@ update: tidy
 
 ## test: runs unit tests and gives a coverage report
 .phony: test
-test: tidy
+test: generate tidy
 	@go test -cover ./...
 
-## test: generates a coverage report for the entire module
+## test: generates a coverage report as coverage.out
 .phony: coverage
-coverage: tidy
+coverage: generate tidy
 	@go test -coverprofile=coverage.out ./...
 
 ## fmt: format the code

@@ -27,6 +27,7 @@ jobs:
       - name: Build
         run: |
           cd ads-backend
+          go install github.com/sqlc-dev/sqlc/cmd/sqlc@latest
           make build
 
   test:
@@ -45,6 +46,7 @@ jobs:
       - name: Test
         run: |
           cd ads-backend
+          go install github.com/sqlc-dev/sqlc/cmd/sqlc@latest
           make test
 
   format:
