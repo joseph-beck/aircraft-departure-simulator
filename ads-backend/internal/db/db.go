@@ -17,6 +17,7 @@ type DB struct {
 	queries *sqlc.Queries
 }
 
+// Connecter interface for establishing a database connection.
 func NewDB(conn Connecter) *DB {
 	db, err := conn.Connect()
 	if err != nil {
@@ -26,6 +27,8 @@ func NewDB(conn Connecter) *DB {
 	return &db
 }
 
+// Translation between sqlc generated code and application code.
+// Uses the MaxWeightPreparer to convert each data entry.
 func (db *DB) GetMaximumWeights() ([]maxweight.MaxWeight, error) {
 	data, err := db.queries.GetMaximumWeights(db.ctx)
 	if err != nil {
@@ -39,6 +42,7 @@ func (db *DB) GetMaximumWeights() ([]maxweight.MaxWeight, error) {
 		if err != nil {
 			return nil, err
 		}
+
 		maxWeights = append(maxWeights, mw)
 	}
 

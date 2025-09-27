@@ -35,9 +35,9 @@ func DefaultCredentials() Credentials {
 	host := os.Getenv("PG_HOST")
 	port := os.Getenv("PG_PORT")
 	user := os.Getenv("PG_USER")
-	password := os.Getenv("PG_PASS")
+	pass := os.Getenv("PG_PASS")
 
-	return NewCredentials(host, port, user, password)
+	return NewCredentials(host, port, user, pass)
 }
 
 type Connecter interface {

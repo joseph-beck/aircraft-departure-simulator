@@ -3,6 +3,7 @@ BINARY_NAME = aircraft-departure-simulator
 GATEWAY_PATH = ./cmd/ads-gateway/main.go
 FLIGHT_PATH = ./cmd/ads-flight/main.go
 MANAGE_PATH = ./cmd/ads-manage/main.go
+SEED_PATH = ./cmd/ads-seed/main.go
 
 ## help: get info about the targets within this makefile
 .phony: help
@@ -15,6 +16,7 @@ help:
 	@echo "  GATEWAY_PATH: ${GATEWAY_PATH}"
 	@echo "  FLIGHT_PATH: ${FLIGHT_PATH}"
 	@echo "  MANAGE_PATH: ${MANAGE_PATH}"
+	@echo "  SEED_PATH: ${SEED_PATH}"
 
 ## gateway: runs the api gateway app
 .phony: gateway
@@ -30,6 +32,11 @@ flight: generate
 .phony: manage
 manage: generate
 	@go run ${MANAGE_PATH}
+
+## seed: runs the seed service app, for populating the database with mock data
+.phony: seed
+seed: generate
+	@go run ${SEED_PATH}
 
 ## build: build the application
 .phony: build
