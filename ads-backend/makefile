@@ -80,12 +80,12 @@ update: tidy
 ## test: runs unit tests and gives a coverage report
 .phony: test
 test: generate tidy
-	@go test -cover ./...
+	@go test -short -cover ./...
 
 ## test: generates a coverage report as coverage.out
 .phony: coverage
 coverage: generate tidy
-	@go test -coverprofile=coverage.out ./...
+	@go test -short -coverprofile=coverage.out ./...
 
 ## fmt: format the code
 .phony: fmt
