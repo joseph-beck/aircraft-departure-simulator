@@ -3,7 +3,7 @@ package maxweight
 import "time"
 
 var MockMaxWeight = MaxWeight{
-	Name:     "Test Max Weight",
+	Name:     "MockMaxWeight",
 	Date:     time.Now(),
 	ZeroFuel: 40000,
 	TakeOff:  70000,

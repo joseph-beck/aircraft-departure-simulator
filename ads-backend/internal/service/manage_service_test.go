@@ -18,3 +18,13 @@ func TestNewManageService(t *testing.T) {
 	svc := NewManageService(db)
 	assert.NotNil(t, svc)
 }
+
+func TestManageServicePing(t *testing.T) {
+	db := db.NewDB(mockDB{})
+	svc := NewManageService(db)
+
+	var reply string
+	err := svc.Ping("test", &reply)
+	assert.NoError(t, err)
+	assert.Equal(t, "ping: test", reply)
+}

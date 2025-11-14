@@ -4,6 +4,7 @@ GATEWAY_PATH = ./cmd/ads-gateway/main.go
 FLIGHT_PATH = ./cmd/ads-flight/main.go
 MANAGE_PATH = ./cmd/ads-manage/main.go
 SEED_PATH = ./cmd/ads-seed/main.go
+AUTH_PATH = ./cmd/ads-auth/main.go
 
 ## help: get info about the targets within this makefile
 .phony: help
@@ -37,6 +38,11 @@ manage: generate
 .phony: seed
 seed: generate
 	@go run ${SEED_PATH}
+
+## auth: runs the auth service
+.phony: auth
+auth: generate
+	@go run ${AUTH_PATH}
 
 ## build: build the application
 .phony: build

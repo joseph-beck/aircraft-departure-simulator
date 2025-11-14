@@ -5,6 +5,7 @@ import (
 
 	"github.com/jackc/pgx/v5"
 	"github.com/joseph-beck/aircraft-departure-simulator/ads-backend/generated/sqlc"
+	"github.com/joseph-beck/aircraft-departure-simulator/ads-backend/pkg/carrier/fleet/aircraft/subtype/aircraftconstants"
 	"github.com/joseph-beck/aircraft-departure-simulator/ads-backend/pkg/carrier/fleet/aircraft/subtype/maxweight"
 )
 
@@ -25,6 +26,28 @@ func NewDB(conn Connecter) *DB {
 	}
 
 	return &db
+}
+
+// Translation between sqlc generated code and application code.
+// Uses the AircraftConstantPreparer to convert each data entry.
+func (db *DB) GetAircraftConstants() ([]aircraftconstants.AircraftConstant, error) {
+	data, err := db.queries.GetAircraftConstants(db.ctx)
+	if err != nil {
+		return nil, err
+	}
+
+	var aircraftConstants []aircraftconstants.AircraftConstant
+	preparer := aircraftconstants.AircraftConstantPreparer{}
+	for _, d := range data {
+		ac, err := preparer.Prepare(d)
+		if err != nil {
+			return nil, err
+		}
+
+		aircraftConstants = append(aircraftConstants, ac)
+	}
+
+	return aircraftConstants, nil
 }
 
 // Translation between sqlc generated code and application code.
