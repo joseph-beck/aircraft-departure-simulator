@@ -2,3 +2,7 @@ bin
 
 *.env
 *.env.local
+
+coverage.out
+
+generated

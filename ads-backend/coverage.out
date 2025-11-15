@@ -1,8 +1,0 @@
-mode: set
-github.com/joseph-beck/aircraft-departure-simulator/ads-backend/cmd/ads-flight/main.go:5.13,7.2 1 1
-github.com/joseph-beck/aircraft-departure-simulator/ads-backend/cmd/ads-gateway/main.go:5.13,7.2 1 1
-github.com/joseph-beck/aircraft-departure-simulator/ads-backend/cmd/ads-manage/main.go:5.13,7.2 1 1
-github.com/joseph-beck/aircraft-departure-simulator/ads-backend/internal/db/db.go:5.32,7.16 2 1
-github.com/joseph-beck/aircraft-departure-simulator/ads-backend/internal/db/db.go:7.16,8.13 1 1
-github.com/joseph-beck/aircraft-departure-simulator/ads-backend/internal/db/db.go:11.2,11.12 1 1
-github.com/joseph-beck/aircraft-departure-simulator/ads-backend/internal/service/manage_service.go:9.40,11.2 1 1

@@ -1,5 +1,5 @@
 package cargohold
 
-type Deck struct{
+type Deck struct {
 	Holds []Hold
 }
