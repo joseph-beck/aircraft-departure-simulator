@@ -12,4 +12,4 @@
 
 ## architecture
 
-<img width="3040" height="3080" alt="image" src="https://github.com/user-attachments/assets/b9b16292-a78d-4f6d-8ec4-64cee98d284d" />
+<img width="3840" height="3080" alt="image" src="https://github.com/user-attachments/assets/b6e5b725-909e-4070-aa05-da8012ee3ea3" />
