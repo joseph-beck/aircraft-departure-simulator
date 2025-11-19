@@ -8,8 +8,24 @@
 
 ## getting started
 
-...
+```sh
+# 1. clone repo
+git clone https://github.com/joseph-beck/aircraft-departure-simulator.git
+
+# 2. start backend
+cd ads-backend
+go mod download
+make all
+
+# 3. start ui
+cd ads-ui
+pnpm install
+pnpm run dev
+
+# 4. go to browser!
+http://localhost:3000
+```
 
 ## architecture
 
-<img width="3040" height="3080" alt="image" src="https://github.com/user-attachments/assets/b9b16292-a78d-4f6d-8ec4-64cee98d284d" />
+<img width="3840" height="3080" alt="image" src="https://github.com/user-attachments/assets/b6e5b725-909e-4070-aa05-da8012ee3ea3" />
